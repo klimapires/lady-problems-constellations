@@ -1,0 +1,12 @@
+applications:
+  - path: .
+    memory: 128M
+    instances: 1
+    domain: mybluemix.net
+    name: nometemporarioangelhack
+    host: nometemporarioangelhack
+    disk_quota: 1024M
+    buildpack: python_buildpack
+    services:
+      - mysql-prod
+
