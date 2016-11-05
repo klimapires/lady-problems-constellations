@@ -9,4 +9,6 @@ applications:
     buildpack: python_buildpack
     services:
       - mysql-prod
+    env:
+      DISABLE_COLLECTSTATIC: 1
 
