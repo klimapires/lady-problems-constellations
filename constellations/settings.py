@@ -26,7 +26,7 @@ SECRET_KEY = '5wk3$w#zk%is6wo1)7+1a#q5^!g!9qpyvlp7@1ezh8m+jae%gl'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nometemporarioangelhack.mybluemix.net', 'localhost', 'localhost:8080', 'localhost:8000', 'mariajob.mybluemix.net']
 
 
 # Application definition
