@@ -3,5 +3,29 @@
 {% block conteudo %}
 <h2>Sobre Você</h2>
 <p>Preencha um pequeno cadastro para continuar.</p>
-
+<form>
+  <div class="form-group">
+    <label for="inputName">Nome</label>
+    <input type="email" class="form-control" id="inputName" placeholder="Nome">
+  </div>
+  <div class="form-group">
+    <label for="inputEmail">E-mail</label>
+    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
+  </div>
+  <div class="form-group">
+    <label for="inputPassword">Password</label>
+    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
+  </div>
+  <label for="sel1">País</label>
+  <select class="form-control" id="sel1">
+    <option selected>Brasil</option>
+    <option >Outros</option>
+  </select>
+  <label for="sel2">Estado</label>
+  <select class="form-control" id="sel2">
+    <option selected>SP</option>
+    <option >Outros</option>
+  </select>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
 {% endblock %}

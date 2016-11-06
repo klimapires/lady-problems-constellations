@@ -1,9 +1,8 @@
 from django import forms
 
-from .models import Post
+from website.models import JobPost
 
-class PostForm(forms.ModelForm):
-
+class JobPostForm(forms.ModelForm):
     class Meta:
-        model = Post
-        fields = ('title', 'text',)
+        model = JobPost
+        fields = '__all__'

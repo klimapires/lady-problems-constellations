@@ -1,19 +1,25 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from website.forms import JobPostForm
+
+from website.models import JobCategory
 
 def index(request):
     return render(request, 'website/index.html', {})
 
 def quero_trabalhar(request):
-    return render(request, 'website/quero_trabalhar.html', {})
+    request.session['quero-trabalhar'] = True
 
-def quero_trabalhar_design(request):
-    return render(request, 'website/quero_trabalhar_design.html', {})
+    categories = JobCategory.objects.all()
 
-def quero_trabalhar_programacao(request):
-    return render(request, 'website/quero_trabalhar_programacao.html', {})
+    return render(request, 'website/quero_trabalhar.html', {'categories': categories})
 
-def quero_trabalhar_negocios(request):
-    return render(request, 'website/quero_trabalhar_negocios.html', {})
+def quero_trabalhar_areas(request, slug):
+    request.session['quero-trabalhar-categoria'] = slug
+
+    category = JobCategory.objects.get(slug=slug)
+    areas = category.jobarea_set.all()
+    return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
 
 def terminando(request):
     return render(request, 'website/terminando.html', {})
@@ -24,13 +30,19 @@ def quero_contratar(request):
 def sobre_vc(request):
     return render(request, 'website/sobre_vc.html', {})
 
-def login(request):
-    return render(request, 'website/login.html', {})
-
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
 
 def busca_vagas(request):
     return render(request, 'website/busca_vagas.html', {})
 
+def cadastra_trabalho(request):
+    if request.method == 'POST':
+        form = JobPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista-trabalhos')
+    else:
+        form = JobPostForm()
 
+    return render(request, 'website/cadastra_trabalho.html', {'form': form})
