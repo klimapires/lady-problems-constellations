@@ -17,15 +17,6 @@ def quero_trabalhar_areas(request, slug):
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
 
-def quero_trabalhar_design(request):
-    return render(request, 'website/quero_trabalhar_design.html', {})
-
-def quero_trabalhar_programacao(request):
-    return render(request, 'website/quero_trabalhar_programacao.html', {})
-
-def quero_trabalhar_negocios(request):
-    return render(request, 'website/quero_trabalhar_negocios.html', {})
-
 def terminando(request):
     return render(request, 'website/terminando.html', {})
 
