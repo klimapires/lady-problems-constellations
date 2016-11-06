@@ -1,0 +1,43 @@
+{% extends "website/base.html" %}
+
+{% block conteudo %}
+
+<h1>Complete seu perfil</h1>
+<h2>Formação / Escolaridade</h2>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">+</span>
+		<input type="text" class="form-control" placeholder="Instituição de Ensino" aria-describedby="basic-addon1">
+		<input type="text" class="form-control" placeholder="Curso" aria-describedby="basic-addon1">
+		<input type="text" class="form-control" placeholder="Ano de Conclusão" aria-describedby="basic-addon1">
+	</div>
+  <h2>Experiência</h2>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">+</span>
+		<input type="text" class="form-control" placeholder="Empresa" aria-describedby="basic-addon1">
+		<input type="text" class="form-control" placeholder="Cargo" aria-describedby="basic-addon1">
+		<input type="text" class="form-control" placeholder="Período" aria-describedby="basic-addon1">
+	</div>
+  <h2>Idiomas</h2>
+	<div class="input-group">
+		<span class="input-group-addon" id="basic-addon1">+</span>
+		<input type="text" class="form-control" placeholder="Idioma" aria-describedby="basic-addon1">
+	<div class="form-group">
+  <label for="sel1">Nível de Experiência</label>
+  <select class="form-control" id="sel1">
+    <option>Básico</option>
+    <option>Intermediário</option>
+    <option>Avançado</option>
+  </select>
+</div>
+	</div>
+  <h2>Localidade</h2>
+  <label for="sel2">País</label>
+  <select class="form-control" id="sel2">
+    <option selected>Brasil</option>
+    <option >Outros</option>
+  </select>
+
+</div>
+<button type="button" class="btn btn-default"><a href="{% url 'procurar-trampo' %}">Procurar Jobs com o meu perfil!</a></button>
+
+{% endblock %}

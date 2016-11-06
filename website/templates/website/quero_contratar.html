@@ -1,5 +1,32 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h1>sou o quero contratar</h1>
+<h2>Que tipo de serviço você deseja contratar?</h2>
+</div>
+<h2>Localidade</h2>
+<label for="sel1">Escolha a categoria</label>
+<select class="form-control" id="sel1">
+	<option selected>Design</option>
+	<option>Negócio</option>
+	<option>Desenvolvimento</option>
+</select>
+<!--
+Design
+	Marca
+	Pesquisa de Mercado
+	Mídias Sociais
+	Vídeo
+	Edição de Imagens
+Negócio
+	E-mail 
+	SEA
+	SEO
+	Gestão de Customer Relationship
+	Teste A/B
+Desenvolvimento
+	Front-end
+	Back-end
+	Full stack
+-->
+<button type="button" class="btn btn-default"><a href="{% url 'sobre-vc' %}">Quero Contratar</a></button>
 {% endblock %}

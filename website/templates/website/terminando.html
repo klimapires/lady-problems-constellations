@@ -1,5 +1,9 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h1>sou o login</h1>
+<h1>Quase lá!</h1>
+<p>O que você deseja fazer agora?</p>
+<a type="button" class="btn btn-default" href="{% url 'procurar-trampo' %}">Procurar vagas abertas</a>
+<a type="button" class="btn btn-default" href="{% url 'completa-perfil' %}">Oferecer meus serviços</a>
+
 {% endblock %}

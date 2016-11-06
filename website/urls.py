@@ -11,6 +11,8 @@ urlpatterns = [
     url(r'^quero-trabalhar/negocios/$', views.quero_trabalhar_negocios, name='quero-trabalhar-negocios'),
     url(r'^quero-contratar/$', views.quero_contratar, name='quero-contratar'),
     url(r'^terminando/$', views.terminando, name='terminando'),
+    url(r'^completa-perfil/$', views.completa_perfil, name='completa-perfil'),
+    url(r'^sobre-vc/$', views.sobre_vc, name='sobre-vc'),
     url(r'^login/$', views.login, name='login'),
     url(r'^procurar-trampo/$', views.procura_trampo, name='procurar-trampo'),
 ]

@@ -21,9 +21,16 @@ def terminando(request):
 def quero_contratar(request):
     return render(request, 'website/quero_contratar.html', {})
 
+def sobre_vc(request):
+    return render(request, 'website/sobre_vc.html', {})
+
 def login(request):
     return render(request, 'website/login.html', {})
 
+def completa_perfil(request):
+    return render(request, 'website/completa_perfil.html', {})
+
 def procura_trampo(request):
     return render(request, 'website/procura_trampo.html', {})
+
 
