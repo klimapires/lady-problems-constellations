@@ -9,17 +9,18 @@
         <div class="panel-body">
           <h4 class="area">Em que áreas de {{category.name | lower}} você tem interesse?</h4>
           <hr>
-          <form class="form-job">
+          <form class="form-job" action="{% url 'quero-trabalhar' %}" method="post">
+            {% csrf_token %}
             {% for area in areas %}
-            <div class="checkbox">
-              <label>
-                <input type="checkbox" name="areas" value="{{area.id}}"> {{area.name}}
-              </label>
-            </div>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="areas" value="{{area.id}}"> {{area.name}}
+                </label>
+              </div>
             {% endfor %}
             <div class="row">
               <div class="col-sm-12">
-                <a type="button" class="btn btn-lg btn-primary btn-block" href="">Continuar</a>
+                <input type="submit" class="btn btn-lg btn-primary btn-block" value="Continuar">
               </div>
             </div>
           </form>

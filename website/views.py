@@ -8,11 +8,17 @@ def index(request):
     return render(request, 'website/index.html', {})
 
 def quero_trabalhar(request):
-    request.session['quero-trabalhar'] = True
+    if request.method == 'POST':
+        areas = request.POST.getlist('areas')
+        request.session['quero-trabalhar-areas'] = areas
 
-    categories = JobCategory.objects.all()
+        return redirect('terminando')
+    else:
+        request.session['quero-trabalhar'] = True
 
-    return render(request, 'website/quero_trabalhar.html', {'categories': categories})
+        categories = JobCategory.objects.all()
+
+        return render(request, 'website/quero_trabalhar.html', {'categories': categories})
 
 def quero_trabalhar_areas(request, slug):
     request.session['quero-trabalhar-categoria'] = slug
