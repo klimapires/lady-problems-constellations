@@ -3,8 +3,10 @@
 {% block conteudo %}
   <div class="container">
     <div class="box">
-      <form class="form-signin">
+      <form class="form-signin" action="{% url 'login' %}" method="post">
       <img style="margin-left:auto;margin-right:auto;" src="{% static 'img/logo.png' %}" alt="Smiley face" class="logo">
+        {% csrf_token %}
+        <h2 class="logo">Logo</h2>
         <hr>
         <div class="form-group">
 					<div class="row">
@@ -18,13 +20,13 @@
 		    	<div class="row">
 						<div class="col-sm-10">
 		    			<label for="id_password" class="col-sm-4 control-label">Senha</label>
-		      		<input type="password" class="form-control" id="id_password" placeholder="Digite sua Senha">
+		      		<input type="password" class="form-control" id="id_password" name="password" placeholder="Digite sua Senha">
 						</div>		    	
 					</div>
 		  	</div>
 				<hr>	
 				<div class="row">
-	  			<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'terminando' %}">Continuar</a>			   	   
+          <input type="submit" class="btn btn-lg btn-primary btn-block" value="Continuar">
 	  		</div>
    		</form>
 		</div>	
