@@ -14,4 +14,14 @@ hr {
 	font-style: italic;
 }
 
+.btn-primary {
+    color: #fff;
+    background-color: #E32636 !important;
+    border-color: #E32636!important;
+}
 
+.btn-primary:hover {
+    color: #fff;
+    background-color: #DC646E !important;
+    border-color: #F5A5A3 !important;
+}
