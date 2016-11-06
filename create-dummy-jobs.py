@@ -15,7 +15,7 @@ fake = Factory.create('pt_BR')
 
 from website.models import JobPost, JobArea
 
-for _ in range(10):
+for _ in range(100):
     JobPost.objects.create(
         title=fake.job(),
         description=fake.catch_phrase(),
