@@ -1,4 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
+from website.forms import JobPostForm
 
 def index(request):
     return render(request, 'website/index.html', {})
@@ -30,4 +32,13 @@ def completa_perfil(request):
 def procura_trampo(request):
     return render(request, 'website/procura_trampo.html', {})
 
+def cadastra_trabalho(request):
+    if request.method == 'POST':
+        form = JobPostForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('lista-trabalhos')
+    else:
+        form = JobPostForm()
 
+    return render(request, 'website/cadastra_trabalho.html', {'form': form})
