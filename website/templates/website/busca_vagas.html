@@ -2,14 +2,41 @@
 
 {% block conteudo %}
 <div class="container">
-	<h2 class="area">Vagas disponíveis</h2>
-	 <div class="panel panel-default">
-	    <div class="panel-body">
-	   		<h4>Big data</h4>
-	   		<h5>Descrição da vaga</h5>
-	   		<hr>
-	   		<h5>Valor:</h5>
-	   		<button  class="btn btn-success" type="submit">Candidatar-se</button>
-		</div>
-	</div>
+  {% if messages %}
+    {% for message in messages %}
+      <div class="alert alert-{{message.tags}}">{{message}}</div>
+    {% endfor %}
+  {% endif %}
+  <div class="row">
+    <div class="col-sm-12">
+      <h2 class="area">Vagas disponíveis</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+      <p>
+        Áreas:
+        {% for area in selected_areas %}
+        <span class="label label-default">{{area.name}} <a style="color: white">&times;</a></span>
+        {% endfor %}
+      </p>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+      {% for job in jobs %}
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h4>{{job.title}}</h4>
+            <h5>{{job.description}}</h5>
+            <hr>
+            <h5>Valor: {{job.budget}}</h5>
+            <a class="btn btn-success" href="{% url 'candidatar-vaga' job.id %}">Candidatar-se</a>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -8,6 +8,10 @@ urlpatterns = [
     url(r'^quero-trabalhar/$', views.quero_trabalhar, name='quero-trabalhar'),
     url(r'^quero-trabalhar/(?P<slug>[-\w]+)/$', views.quero_trabalhar_areas, name='quero-trabalhar-areas'),
 
+    url(r'^busca-vagas/$', views.busca_vagas, name='busca-vagas'),
+
+    url(r'^vaga/(?P<id>[\d]+)/candidatar/$', views.candidatar_vaga, name='candidatar-vaga'),
+
     url(r'^quero-contratar/$', views.quero_contratar, name='quero-contratar'),
     url(r'^quero-contratar/(?P<slug>[-\w]+)/$', views.quero_contratar_areas, name='quero-contratar-areas'),
     url(r'^terminando/$', views.terminando, name='terminando'),
@@ -18,8 +22,5 @@ urlpatterns = [
     url(r'^altera-perfil/$', views.contrata_alteraperfil, name='altera-perfil'),
     url(r'^contrata-historico/$', views.contrata_historico, name='contrata-historico'),
     url(r'^contrata-projeto/$', views.contrata_projeto, name='contrata-projeto'),
-    
-
-
     url(r'', include('django.contrib.auth.urls')),
 ]

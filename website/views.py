@@ -1,18 +1,26 @@
+from django.urls import reverse
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from website.forms import JobPostForm
 
-from website.models import JobCategory
+from website.models import JobCategory, JobPost, JobArea
 
 def index(request):
     return render(request, 'website/index.html', {})
 
 def quero_trabalhar(request):
-    request.session['quero-trabalhar'] = True
+    if request.method == 'POST':
+        areas = request.POST.getlist('areas')
+        request.session['quero-trabalhar-areas'] = areas
 
-    categories = JobCategory.objects.all()
+        return redirect('terminando')
+    else:
+        request.session['quero-trabalhar'] = True
 
-    return render(request, 'website/quero_trabalhar.html', {'categories': categories})
+        categories = JobCategory.objects.all()
+
+        return render(request, 'website/quero_trabalhar.html', {'categories': categories})
 
 def quero_trabalhar_areas(request, slug):
     request.session['quero-trabalhar-categoria'] = slug
@@ -20,6 +28,33 @@ def quero_trabalhar_areas(request, slug):
     category = JobCategory.objects.get(slug=slug)
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
+
+def busca_vagas(request):
+    query_areas = request.GET.getlist('q', [])
+
+    session_areas = request.session.pop('quero-trabalhar-areas', [])
+    if session_areas:
+        url = reverse('busca-vagas') + '?' + '&'.join('q={}'.format(q) for q in session_areas + query_areas)
+        return redirect(url)
+
+    if not query_areas:
+        jobs = JobPost.objects.all()
+    else:
+        jobs = JobPost.objects.filter_by_areas(query_areas)
+
+    areas = JobArea.objects.filter(id__in=query_areas)
+
+    return render(request, 'website/busca_vagas.html', {'jobs': jobs, 'selected_areas': areas})
+
+def candidatar_vaga(request, id):
+    if not request.user.is_authenticated:
+        url = reverse("login") + '?next=' + request.path
+        messages.info(request, 'Para se candidatar a alguma das vagas, por favor faça login')
+        return redirect(url)
+    job = JobPost.objects.get(pk=id)
+    messages.info(request, 'Candidatou-se à vaga {}'.format(job.title))
+
+    return redirect('busca-vagas')
 
 def terminando(request):
     return render(request, 'website/terminando.html', {})
@@ -43,9 +78,6 @@ def contrata_sobre_vc(request):
 
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
-
-def busca_vagas(request):
-    return render(request, 'website/busca_vagas.html', {})
 
 def cadastra_trabalho(request):
     if request.method == 'POST':
