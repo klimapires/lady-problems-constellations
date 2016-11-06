@@ -47,6 +47,10 @@ def busca_vagas(request):
     return render(request, 'website/busca_vagas.html', {'jobs': jobs, 'selected_areas': areas})
 
 def candidatar_vaga(request, id):
+    if not request.user.is_authenticated:
+        url = reverse("login") + '?next=' + request.path
+        messages.info(request, 'Para se candidatar a alguma das vagas, por favor faça login')
+        return redirect(url)
     job = JobPost.objects.get(pk=id)
     messages.info(request, 'Candidatou-se à vaga {}'.format(job.title))
 
@@ -69,8 +73,8 @@ def quero_contratar_areas(request, slug):
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_contratar_areas.html', {'category': category, 'areas': areas})
 
-def contrato_sobre_vc(request):
-    return render(request, 'website/contrato_sobre_vc.html', {})
+def contrata_sobre_vc(request):
+    return render(request, 'website/contrata_sobre_vc.html', {})
 
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
@@ -84,7 +88,7 @@ def cadastra_trabalho(request):
     else:
         form = JobPostForm()
 
-    return render(request, 'website/cadastra_trabalho.html', {'form': form})
+    return render(request, 'website/cadastra_trabalhos.html', {'form': form})
 
 def contrata_alteraperfil (request):
     return render(request, 'website/contrata_alteraperfil.html', {})
