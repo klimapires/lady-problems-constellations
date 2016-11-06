@@ -1,5 +1,11 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h1>sou o quero trabalhar</h1>
+<h1> Ótimo! Qual a sua área de atuação?</h1>
+
+<a type="button" class="btn btn-default" href="{% url 'quero-trabalhar-design' %}">Design</a>
+<a type="button" class="btn btn-default" href="{% url 'quero-trabalhar-programacao' %}">Programadora</a>
+<a class="btn btn-default" href="{% url 'quero-trabalhar-negocios' %}">Negócios</a>
+
+
 {% endblock %}

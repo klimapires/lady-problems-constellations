@@ -1,7 +1,10 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h1>página inicial</h1>
-
-<h2>outra coisa</h2>
+<h1>MariaJob</h1>
+<h2>Bem-vinda! O que você procura hoje?</h2>
+  <button type="button" class="btn btn-default"><a href="{% url 'quero-contratar' %}">Quero Contratar</a></button>
+  <button type="button" class="btn btn-default"><a href="{% url 'quero-trabalhar' %}">Quero Trabalhar</a></button>
+  <button type="button" class="btn btn-default"><a href="{% url 'login' %}">Entrar no Sistema</a></button>
+  <button type="button" class="btn btn-default"><a href="">Entrar com Facebook</a></button>
 {% endblock %}

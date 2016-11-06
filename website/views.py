@@ -15,5 +15,11 @@ def quero_trabalhar_programacao(request):
 def quero_trabalhar_negocios(request):
     return render(request, 'website/quero_trabalhar_negocios.html', {})
 
+def terminando(request):
+    return render(request, 'website/terminando.html', {})
+
 def quero_contratar(request):
     return render(request, 'website/quero_contratar.html', {})
+
+def login(request):
+    return render(request, 'website/login.html', {})
