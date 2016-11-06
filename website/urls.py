@@ -22,5 +22,8 @@ urlpatterns = [
     url(r'^altera-perfil/$', views.contrata_alteraperfil, name='altera-perfil'),
     url(r'^contrata-historico/$', views.contrata_historico, name='contrata-historico'),
     url(r'^contrata-projeto/$', views.contrata_projeto, name='contrata-projeto'),
+    url(r'^contrata-pagamento/$', views.contrata_pagamento, name='contrata-pagamento'),
+    url(r'^contrata-criajob/$', views.contrata_criajob, name='contrata-criajob'),
+    url(r'^contrata-buscapessoa/$', views.contrata_buscapessoa, name='contrata-buscapessoa'),
     url(r'', include('django.contrib.auth.urls')),
 ]

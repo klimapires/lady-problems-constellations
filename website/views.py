@@ -107,3 +107,7 @@ def contrata_pagamento(request):
 
 def contrata_projeto(request):
     return render(request, 'website/contrata_projeto.html', {})
+
+def contrata_criajob(request):
+    return render(request, 'website/contrata_criajob.html', {})
+
