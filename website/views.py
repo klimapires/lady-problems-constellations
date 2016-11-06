@@ -24,9 +24,6 @@ def quero_contratar(request):
 def sobre_vc(request):
     return render(request, 'website/sobre_vc.html', {})
 
-def login(request):
-    return render(request, 'website/login.html', {})
-
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
 

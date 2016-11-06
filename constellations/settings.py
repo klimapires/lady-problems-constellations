@@ -28,6 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['nometemporarioangelhack.mybluemix.net', 'localhost', 'localhost:8080', 'localhost:8000', 'mariajob.mybluemix.net']
 
+AUTHENTICATION_BACKENDS = ['constellations.auth.EmailBackend']
 
 # Application definition
 
