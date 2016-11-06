@@ -25,10 +25,21 @@ def terminando(request):
     return render(request, 'website/terminando.html', {})
 
 def quero_contratar(request):
-    return render(request, 'website/quero_contratar.html', {})
+    request.session['quero-contratar'] = True
 
-def sobre_vc(request):
-    return render(request, 'website/sobre_vc.html', {})
+    categories = JobCategory.objects.all()
+
+    return render(request, 'website/quero_contratar.html', {'categories': categories})
+
+def quero_contratar_areas(request, slug):
+    request.session['quero-contratar-areas'] = slug
+
+    category = JobCategory.objects.get(slug=slug)
+    areas = category.jobarea_set.all()
+    return render(request, 'website/quero_contratar_areas.html', {'category': category, 'areas': areas})
+
+def contrato_sobre_vc(request):
+    return render(request, 'website/contrato_sobre_vc.html', {})
 
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
@@ -46,3 +57,21 @@ def cadastra_trabalho(request):
         form = JobPostForm()
 
     return render(request, 'website/cadastra_trabalho.html', {'form': form})
+
+def contrata_alteraperfil (request):
+    return render(request, 'website/contrata_alteraperfil.html', {})
+
+def contrata_buscapessoa(request):
+    return render(request, 'website/contrata_buscapessoa.html', {})
+
+def contrata_criajob(request):
+    return render(request, 'website/contrata_criajob.html', {})
+
+def contrata_historico(request):
+    return render(request, 'website/contrata_historico.html', {})
+
+def contrata_pagamento(request):
+    return render(request, 'website/contrata_pagamento.html', {})
+
+def contrata_projeto(request):
+    return render(request, 'website/contrata_projeto.html', {})

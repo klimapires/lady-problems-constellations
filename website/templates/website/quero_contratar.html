@@ -2,6 +2,7 @@
 
 {% block conteudo %}
 
+<!--Essa pagina sera direcionada para quero_trabalhar.html-->
 <div class="container">
 	<h2 class="area">Que tipo de serviço você deseja contratar?</h2>
 	 <div class="panel panel-default">
@@ -10,17 +11,13 @@
 	   		<hr>
 				<form class="form-job">
 					<div class="row">
-						<label for="sel1">Escolha a categoria</label>
-							<select class="form-control" id="sel1">
-								<option selected>Design</option>
-								<option>Negócio</option>
-								<option>Desenvolvimento</option>
-							</select>  
+						<div class="col-sm-12 col-md-6 col-md-offset-3">
+				          {% for category in categories %}
+				            <a class="btn btn-lg btn-primary btn-block" href="{% url 'quero-contratar-areas' category.slug %}">{{category.name}}</a>
+				          {% endfor %}
+				        </div>
 					</div>
 					<br>
-					<button class="btn btn-lg btn-primary btn-block" type="submit">Quero Contratar</button>
-
-					<a class="btn btn-lg btn-primary btn-block" href="{% url 'quero-trabalhar-negocios' %}">Negócios</a>
 				</form>
 		</div>
 	</div>
