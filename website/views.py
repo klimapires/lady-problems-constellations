@@ -1,3 +1,8 @@
+import string
+import random
+
+from django.contrib.auth import get_user_model
+from django.contrib.auth import login as login_user
 from django.urls import reverse
 from django.contrib import messages
 from django.shortcuts import render, redirect
@@ -77,7 +82,24 @@ def contrata_sobre_vc(request):
     return render(request, 'website/contrata_sobre_vc.html', {})
 
 def completa_perfil(request):
-    return render(request, 'website/completa_perfil.html', {})
+    if request.method == 'POST':
+        username = ''.join(random.sample(string.ascii_letters, 16))
+        email = request.POST['email']
+        password = request.POST['password']
+
+        User = get_user_model()
+
+        user = User.objects.create_user(
+            username,
+            email,
+            password,
+        )
+
+        login_user(request, user)
+
+        return redirect('busca-vagas')
+    else:
+        return render(request, 'website/completa_perfil.html', {})
 
 def cadastra_trabalho(request):
     if request.method == 'POST':
