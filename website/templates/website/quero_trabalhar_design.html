@@ -1,17 +1,29 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h1>Que áreas de negócio você tem interesse?</h1>
-<form>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"> Identidade Visual 
-      <input type="checkbox"> Estudo de Mercado
-      <input type="checkbox"> Mídias Sociais
-      <input type="checkbox"> Vídeo
-      <input type="checkbox"> Edição de Imagens
-    </label>
-  </div>
-<button type="submit" class="btn btn-default">Próximo</button>
-</form>
+	<div class="container">
+	  <h2 class="area">Quero trabalho</h2>
+	  <div class="panel panel-default">
+	    <div class="panel-body">
+	   		<h4 class="area">Que áreas de negócio você tem interesse?</h4>
+	   		<hr>
+			<form class="form-job">
+			<div class="checkbox">
+			 	<label><input type="checkbox" value="">Identidade Visual </label><br>
+				<label><input type="checkbox" value="">Estudo de Mercado </label><br>
+			 	<label><input type="checkbox" value="">Vídeo </label><br>
+				<label><input type="checkbox" value="">Edição de Imagens </label><br>
+				<label><input type="checkbox" value=""> Mídias Sociais</label><br>
+			</div>
+		
+		    <div class="row">
+		    	<a type="button" class="btn btn-lg btn-primary btn-block" href="">Continuar</a>
+			   	   
+		    </div>
+		</div>
+		</form>
+	    </div>
+	  </div>
+	</div>
+
 {% endblock %}
