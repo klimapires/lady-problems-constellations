@@ -12,7 +12,14 @@ urlpatterns = [
     url(r'^quero-contratar/(?P<slug>[-\w]+)/$', views.quero_contratar_areas, name='quero-contratar-areas'),
     url(r'^terminando/$', views.terminando, name='terminando'),
     url(r'^completa-perfil/$', views.completa_perfil, name='completa-perfil'),
-    url(r'^sobre-vc/$', views.sobre_vc, name='sobre-vc'),
+    url(r'^sobre-vc/$', views.contrata_sobre_vc, name='sobre-vc'),
     url(r'^busca-vagas/$', views.busca_vagas, name='busca-vagas'),
+    url(r'^cadastra-trabalho/$', views.cadastra_trabalho, name='cadastra-trabalho'),
+    url(r'^altera-perfil/$', views.contrata_alteraperfil, name='altera-perfil'),
+    url(r'^contrata-historico/$', views.contrata_historico, name='contrata-historico'),
+    url(r'^contrata-projeto/$', views.contrata_projeto, name='contrata-projeto'),
+    
+
+
     url(r'', include('django.contrib.auth.urls')),
 ]

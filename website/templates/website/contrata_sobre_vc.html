@@ -1,31 +1,67 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h2>Sobre Você</h2>
-<p>Preencha um pequeno cadastro para continuar.</p>
-<form>
-  <div class="form-group">
-    <label for="inputName">Nome</label>
-    <input type="email" class="form-control" id="inputName" placeholder="Nome">
+  <div class="container">
+    <h2 class="area">Sobre Você</h2>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h4 class="area"></h4>
+        
+    <form class="form-horizontal">
+      <div class="form-group">
+        <label for="inputEmail3" class="col-sm-2 control-label">Nome</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputEmail3" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Senha</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">País</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+        </div>
+      </div> 
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Estado</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword3" class="col-sm-2 control-label">Cidade</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputPassword3" placeholder="">
+        </div>
+      </div>                       
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <div class="checkbox">
+           
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-default">Próximo</button>
+        </div>
+      </div>
+    </form>
+
+    </div>
+
+    </form>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="inputEmail">E-mail</label>
-    <input type="email" class="form-control" id="inputEmail" placeholder="E-mail">
-  </div>
-  <div class="form-group">
-    <label for="inputPassword">Password</label>
-    <input type="password" class="form-control" id="inputPassword" placeholder="Senha">
-  </div>
-  <label for="sel1">País</label>
-  <select class="form-control" id="sel1">
-    <option selected>Brasil</option>
-    <option >Outros</option>
-  </select>
-  <label for="sel2">Estado</label>
-  <select class="form-control" id="sel2">
-    <option selected>SP</option>
-    <option >Outros</option>
-  </select>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
 {% endblock %}

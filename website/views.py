@@ -38,8 +38,8 @@ def quero_contratar_areas(request, slug):
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_contratar_areas.html', {'category': category, 'areas': areas})
 
-def contrato_sobre_vc(request):
-    return render(request, 'website/contrato_sobre_vc.html', {})
+def contrata_sobre_vc(request):
+    return render(request, 'website/contrata_sobre_vc.html', {})
 
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
@@ -56,7 +56,7 @@ def cadastra_trabalho(request):
     else:
         form = JobPostForm()
 
-    return render(request, 'website/cadastra_trabalho.html', {'form': form})
+    return render(request, 'website/cadastra_trabalhos.html', {'form': form})
 
 def contrata_alteraperfil (request):
     return render(request, 'website/contrata_alteraperfil.html', {})
