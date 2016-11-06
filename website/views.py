@@ -8,3 +8,6 @@ def quero_trabalhar(request):
 
 def quero_contratar(request):
     return render(request, 'website/quero_contratar.html', {})
+
+def procura_trampo(request):
+    return render(request, 'website/procura_trampo.html', {})
