@@ -8,11 +8,15 @@ def index(request):
     return render(request, 'website/index.html', {})
 
 def quero_trabalhar(request):
+    request.session['quero-trabalhar'] = True
+
     categories = JobCategory.objects.all()
 
     return render(request, 'website/quero_trabalhar.html', {'categories': categories})
 
 def quero_trabalhar_areas(request, slug):
+    request.session['quero-trabalhar-categoria'] = slug
+
     category = JobCategory.objects.get(slug=slug)
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
