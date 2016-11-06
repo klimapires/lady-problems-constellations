@@ -1,21 +1,18 @@
+
 {% extends "website/base.html" %}
+{% load static %}
 
 {% block conteudo %}
-    <div class="container">
-
-  	    <div class="box">
-
-  	      <form class="form-signin">
-  	        <h2 class="logo">Logo</h2>
-  		        <hr>
-  		        	<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'quero-trabalhar' %}">Quero trabalhar</a>
-
-  		        	<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'quero-contratar' %}">Quero contratar</a>
-  		        <hr>
-  		        <h4 class="area">Já sou cadastrado</h4>
-  		       		<a class="btn btn-lg btn-primary btn-block" href="{% url 'login' %}">Entrar</a>
-  		    </form>
-  		  </div>	
-
-    </div>
+<img style="margin-left:auto;margin-right:auto;" src="{% static 'img/logo.png' %}" alt="Smiley face" class="logo">
+<div class="container">
+    <div class="box">
+      <form class="form-signin">
+	        	<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'quero-trabalhar' %}">Quero trabalhar</a>
+	        	<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'quero-contratar' %}">Quero contratar</a>
+	        <hr>
+	        <h4 class="area">Já sou cadastrado</h4>
+	       		<a class="btn btn-lg btn-primary btn-block" href="{% url 'login' %}">Entrar</a>
+	    </form>
+	  </div>
+</div>
 {% endblock %}

@@ -9,3 +9,9 @@ body {
 hr {
   margin: 1px
 }
+
+.italic{
+	font-style: italic;
+}
+
+

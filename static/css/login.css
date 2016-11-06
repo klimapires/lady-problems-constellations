@@ -1,7 +1,7 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
+  background-color: #98b7bf;
 }
 
 .form-signin {
@@ -43,10 +43,13 @@ body {
   width: 400px;
   margin: 0 auto 0 auto;
   padding: 0px 0px 70px 0px;
-  border: #2980b9 4px solid;
+  border: #E32636 4px solid;
 }
-.logo{
-  text-align: center;
+.logo {
+  display: block;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .titulo{
   text-align: center;
@@ -88,4 +91,18 @@ body {
 }
 .area{
     text-align: center;
+}
+
+.panel .panel-default h5{
+	font-style: italic;
+}
+
+hr {
+  margin: 15px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #E32636;
+    border-color: #2e6da4;
 }
