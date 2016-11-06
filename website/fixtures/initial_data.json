@@ -1,0 +1,130 @@
+[
+  {
+    "model": "website.JobCategory",
+    "pk": 1,
+    "fields": {
+      "name": "Design",
+      "slug": "design"
+    }
+  },
+  {
+    "model": "website.JobCategory",
+    "pk": 2,
+    "fields": {
+      "name": "Programação",
+      "slug": "programacao"
+    }
+  },
+  {
+    "model": "website.JobCategory",
+    "pk": 3,
+    "fields": {
+      "name": "Negócios",
+      "slug": "negocios"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Identidade Visual"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Estudo de Mercado"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Vídeo"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 4,
+    "fields": {
+      "category": 1,
+      "name": "Edição de Imagens"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 5,
+    "fields": {
+      "category": 1,
+      "name": "Mídias Sociais"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "Front-end"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "Back-end"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 8,
+    "fields": {
+      "category": 2,
+      "name": "Full stack"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "name": "Comunicação e Marketing"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 10,
+    "fields": {
+      "category": 3,
+      "name": "SEA"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 11,
+    "fields": {
+      "category": 3,
+      "name": "SEO"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 12,
+    "fields": {
+      "category": 3,
+      "name": "Gerenciamento de Customer Relationship"
+    }
+  },
+  {
+    "model": "website.JobArea",
+    "pk": 13,
+    "fields": {
+      "category": 3,
+      "name": "Teste A/B"
+    }
+  }
+]

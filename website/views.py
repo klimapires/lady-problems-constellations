@@ -2,11 +2,20 @@ from django.shortcuts import render, redirect
 
 from website.forms import JobPostForm
 
+from website.models import JobCategory
+
 def index(request):
     return render(request, 'website/index.html', {})
 
 def quero_trabalhar(request):
-    return render(request, 'website/quero_trabalhar.html', {})
+    categories = JobCategory.objects.all()
+
+    return render(request, 'website/quero_trabalhar.html', {'categories': categories})
+
+def quero_trabalhar_areas(request, slug):
+    category = JobCategory.objects.get(slug=slug)
+    areas = category.jobarea_set.all()
+    return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
 
 def quero_trabalhar_design(request):
     return render(request, 'website/quero_trabalhar_design.html', {})

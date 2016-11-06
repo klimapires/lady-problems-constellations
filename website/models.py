@@ -11,3 +11,10 @@ class JobPost(models.Model):
 
     budget = models.DecimalField('Valor', max_digits=6, decimal_places=2)
 
+class JobCategory(models.Model):
+    name = models.CharField(max_length=64)
+    slug = models.SlugField()
+
+class JobArea(models.Model):
+    category = models.ForeignKey(JobCategory)
+    name = models.CharField(max_length=64)
