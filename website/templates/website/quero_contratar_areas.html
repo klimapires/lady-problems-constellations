@@ -9,7 +9,8 @@
         <div class="panel-body">
           <h4 class="area">Em que áreas de {{category.name | lower}} você quer contratar?</h4>
           <hr>
-          <form class="form-job">
+          <form class="form-job" action="{% url 'quero-contratar' %}" method="POST">
+          {% csrf_token %}
             {% for area in areas %}
             <div class="checkbox">
               <label>
@@ -19,8 +20,9 @@
             {% endfor %}
             <div class="row">
               <div class="col-sm-12">
-                <a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'contrata-buscapessoa' %}">Continuar</a>
-              </div>
+                
+                <input type="submit" class="btn btn-lg btn-primary btn-block" >
+		          </div>
             </div>
           </form>
         </div>

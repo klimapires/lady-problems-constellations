@@ -65,14 +65,20 @@ def terminando(request):
     return render(request, 'website/terminando.html', {})
 
 def quero_contratar(request):
-    request.session['quero-contratar'] = True
+    if request.method == 'POST':
+        areas = request.POST.getlist('areas')
+        request.session['quero-contratar-areas'] = areas
 
-    categories = JobCategory.objects.all()
+        return redirect('contrata-buscapessoa')
+    else:
+        request.session['quero-contratar'] = True
 
-    return render(request, 'website/quero_contratar.html', {'categories': categories})
+        categories = JobCategory.objects.all()
+
+        return render(request, 'website/quero_contratar.html', {'categories': categories})
 
 def quero_contratar_areas(request, slug):
-    request.session['quero-contratar-areas'] = slug
+    request.session['quero-contratar'] = slug
 
     category = JobCategory.objects.get(slug=slug)
     areas = category.jobarea_set.all()
@@ -116,7 +122,21 @@ def contrata_alteraperfil (request):
     return render(request, 'website/contrata_alteraperfil.html', {})
 
 def contrata_buscapessoa(request):
-    return render(request, 'website/contrata_buscapessoa.html', {})
+    query_areas = request.GET.getlist('q', [])
+
+    session_areas = request.session.pop('quero-contratar-areas', [])
+    if session_areas:
+        url = reverse('contrata-buscapessoa') + '?' + '&'.join('q={}'.format(q) for q in session_areas + query_areas)
+        return redirect(url)
+
+    if not query_areas:
+        jobs = JobPost.objects.all()
+    else:
+        jobs = JobPost.objects.filter_by_areas(query_areas)
+
+    areas = JobArea.objects.filter(id__in=query_areas)
+
+    return render(request, 'website/contrata_buscapessoa.html', {'jobs': jobs, 'selected_areas': areas})
 
 def contrata_criajob(request):
     return render(request, 'website/contrata_criajob.html', {})
