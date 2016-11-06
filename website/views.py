@@ -23,3 +23,7 @@ def quero_contratar(request):
 
 def login(request):
     return render(request, 'website/login.html', {})
+
+def procura_trampo(request):
+    return render(request, 'website/procura_trampo.html', {})
+
