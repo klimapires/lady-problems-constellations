@@ -30,7 +30,7 @@ def login(request):
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
 
-def procura_trampo(request):
-    return render(request, 'website/procura_trampo.html', {})
+def busca_vagas(request):
+    return render(request, 'website/busca_vagas.html', {})
 
 

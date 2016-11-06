@@ -1,15 +1,29 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-<h2>Que tipo de serviço você deseja contratar?</h2>
-</div>
-<h2>Localidade</h2>
-<label for="sel1">Escolha a categoria</label>
-<select class="form-control" id="sel1">
-	<option selected>Design</option>
-	<option>Negócio</option>
-	<option>Desenvolvimento</option>
-</select>
+
+<div class="container">
+	<h2 class="area">Que tipo de serviço você deseja contratar?</h2>
+	 <div class="panel panel-default">
+	    <div class="panel-body">
+	   		<h4 class="area">Localidade</h4>
+	   		<hr>
+				<form class="form-job">
+					<div class="row">
+						<label for="sel1">Escolha a categoria</label>
+							<select class="form-control" id="sel1">
+								<option selected>Design</option>
+								<option>Negócio</option>
+								<option>Desenvolvimento</option>
+							</select>  
+					</div>
+					<br>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Quero Contratar</button>
+
+					<a class="btn btn-lg btn-primary btn-block" href="{% url 'quero-trabalhar-negocios' %}">Negócios</a>
+				</form>
+		</div>
+	</div>
 <!--
 Design
 	Marca
@@ -28,5 +42,4 @@ Desenvolvimento
 	Back-end
 	Full stack
 -->
-<button type="button" class="btn btn-default"><a href="{% url 'sobre-vc' %}">Quero Contratar</a></button>
 {% endblock %}
