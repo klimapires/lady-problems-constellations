@@ -8,6 +8,8 @@ urlpatterns = [
     url(r'^quero-trabalhar/$', views.quero_trabalhar, name='quero-trabalhar'),
     url(r'^quero-trabalhar/(?P<slug>[-\w]+)/$', views.quero_trabalhar_areas, name='quero-trabalhar-areas'),
 
+    url(r'^busca-vagas/$', views.busca_vagas, name='busca-vagas'),
+
     url(r'^quero-contratar/$', views.quero_contratar, name='quero-contratar'),
     url(r'^quero-contratar/(?P<slug>[-\w]+)/$', views.quero_contratar_areas, name='quero-contratar-areas'),
     url(r'^terminando/$', views.terminando, name='terminando'),

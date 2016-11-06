@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from website.forms import JobPostForm
 
-from website.models import JobCategory
+from website.models import JobCategory, JobPost
 
 def index(request):
     return render(request, 'website/index.html', {})
@@ -26,6 +26,21 @@ def quero_trabalhar_areas(request, slug):
     category = JobCategory.objects.get(slug=slug)
     areas = category.jobarea_set.all()
     return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
+
+def busca_vagas(request):
+    areas = []
+
+    session_areas = request.session.get('quero-trabalhar-areas')
+    if isinstance(session_areas, list):
+        areas.extend(session_areas)
+
+    query_areas = request.GET.getlist('areas')
+    if isinstance(query_areas, list):
+        areas.extend(query_areas)
+
+    jobs = JobPost.objects.filter_by_areas(areas)
+
+    return render(request, 'website/busca_vagas.html', {'jobs': jobs})
 
 def terminando(request):
     return render(request, 'website/terminando.html', {})
