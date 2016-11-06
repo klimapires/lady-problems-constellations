@@ -1,43 +1,32 @@
 {% extends "website/base.html" %}
 
 {% block conteudo %}
-    <div class="container">
-	<div class="row">
-		<div class="col-sm-6">
-			{{form.as_p}}
-		</div>
-	</div>
-
-	    <div class="box">
-
-	      <form class="form-signin">
-	        <h2 class="logo">Logo</h2>
-	        <hr>
-	          <div class="form-group">
-			    <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-			    <div class="col-sm-10">
-			      <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-			    </div>
-			  </div>
-			  <div class="form-group">
-			    <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-			    <div class="col-sm-10">
-			      <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-			    </div>
-			  </div>
-			<hr>	
-			<div class="row">
-		    	<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'terminando' %}">Continuar</a>
-			   	   
-		    </div>
-		        <div class="checkbox">
-			       	<button type="button" class="btn btn-primary">Login com facebook</button>
-		        	<button type="button" class="btn btn-default">Cadastre-se</button>		   
-		        </div>
-
-
-	      </form>
+  <div class="container">
+    <div class="box">
+      <form class="form-signin">
+        <h2 class="logo">Logo</h2>
+        <hr>
+        <div class="form-group">
+					<div class="row">
+						<div class="col-sm-10">
+								<label for="id_username" class="col-sm-4 control-label">E-mail</label>
+								<input autofocus="" class="form-control" id="id_username" maxlength="254" placeholder="E-mail" name="username" type="text" required /></p>
+						</div>
+					</div>			  
+				</div>
+		  	<div class="form-group">
+		    	<div class="row">
+						<div class="col-sm-10">
+		    			<label for="id_password" class="col-sm-4 control-label">Senha</label>
+		      		<input type="password" class="form-control" id="id_password" placeholder="Digite sua Senha">
+						</div>		    	
+					</div>
+		  	</div>
+				<hr>	
+				<div class="row">
+	  			<a type="button" class="btn btn-lg btn-primary btn-block" href="{% url 'terminando' %}">Continuar</a>			   	   
+	  		</div>
+   		</form>
 		</div>	
-
-    </div>
+	</div>
 {% endblock %}
