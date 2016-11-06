@@ -16,7 +16,7 @@ urlpatterns = [
     url(r'^quero-contratar/(?P<slug>[-\w]+)/$', views.quero_contratar_areas, name='quero-contratar-areas'),
     url(r'^terminando/$', views.terminando, name='terminando'),
     url(r'^completa-perfil/$', views.completa_perfil, name='completa-perfil'),
-    url(r'^sobre-vc/$', views.contrato_sobre_vc, name='sobre-vc'),
-
+    url(r'^sobre-vc/$', views.contrato_sobre_vc, name='contrato-sobre-vc'),
+    url(r'^busca-vagas/$', views.busca_vagas, name='busca-vagas'),	
     url(r'', include('django.contrib.auth.urls')),
 ]
