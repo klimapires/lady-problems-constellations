@@ -47,6 +47,10 @@ def busca_vagas(request):
     return render(request, 'website/busca_vagas.html', {'jobs': jobs, 'selected_areas': areas})
 
 def candidatar_vaga(request, id):
+    if not request.user.is_authenticated:
+        url = reverse("login") + '?next=' + request.path
+        messages.info(request, 'Para se candidatar a alguma das vagas, por favor faça login')
+        return redirect(url)
     job = JobPost.objects.get(pk=id)
     messages.info(request, 'Candidatou-se à vaga {}'.format(job.title))
 
