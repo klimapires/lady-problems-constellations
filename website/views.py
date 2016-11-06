@@ -1,8 +1,10 @@
+from django.urls import reverse
+from django.contrib import messages
 from django.shortcuts import render, redirect
 
 from website.forms import JobPostForm
 
-from website.models import JobCategory, JobPost
+from website.models import JobCategory, JobPost, JobArea
 
 def index(request):
     return render(request, 'website/index.html', {})
@@ -28,19 +30,27 @@ def quero_trabalhar_areas(request, slug):
     return render(request, 'website/quero_trabalhar_areas.html', {'category': category, 'areas': areas})
 
 def busca_vagas(request):
-    areas = []
+    query_areas = request.GET.getlist('q', [])
 
-    session_areas = request.session.get('quero-trabalhar-areas')
-    if isinstance(session_areas, list):
-        areas.extend(session_areas)
+    session_areas = request.session.pop('quero-trabalhar-areas', [])
+    if session_areas:
+        url = reverse('busca-vagas') + '?' + '&'.join('q={}'.format(q) for q in session_areas + query_areas)
+        return redirect(url)
 
-    query_areas = request.GET.getlist('areas')
-    if isinstance(query_areas, list):
-        areas.extend(query_areas)
+    if not query_areas:
+        jobs = JobPost.objects.all()
+    else:
+        jobs = JobPost.objects.filter_by_areas(query_areas)
 
-    jobs = JobPost.objects.filter_by_areas(areas)
+    areas = JobArea.objects.filter(id__in=query_areas)
 
-    return render(request, 'website/busca_vagas.html', {'jobs': jobs})
+    return render(request, 'website/busca_vagas.html', {'jobs': jobs, 'selected_areas': areas})
+
+def candidatar_vaga(request, id):
+    job = JobPost.objects.get(pk=id)
+    messages.info(request, 'Candidatou-se à vaga {}'.format(job.title))
+
+    return redirect('busca-vagas')
 
 def terminando(request):
     return render(request, 'website/terminando.html', {})
@@ -64,9 +74,6 @@ def contrato_sobre_vc(request):
 
 def completa_perfil(request):
     return render(request, 'website/completa_perfil.html', {})
-
-def busca_vagas(request):
-    return render(request, 'website/busca_vagas.html', {})
 
 def cadastra_trabalho(request):
     if request.method == 'POST':
